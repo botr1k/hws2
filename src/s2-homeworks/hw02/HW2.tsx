@@ -44,7 +44,7 @@ export const filterAffairs = (affairs: AffairType[], filter: FilterType): any =>
 
 }
 export const deleteAffair = (affairs: AffairType[], _id: number): any => {
-   return affairs.filter(a => a._id !== _id)
+    return affairs.filter(a => a._id !== _id)
 }
 
 function HW2() {
