@@ -2,19 +2,35 @@
 }
 
 .input {
+    min-width: 372px;
+    max-height: 36px;
+    margin-bottom: 7px;
+    padding: 8px 12px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #000000;
+    border: 1px solid #D1D1D1;
+    border-radius: 5px;
 }
 
 .inputWrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 5px;
 }
 
 .superInput {
 }
 
 .errorInput {
+    border-color: #CC1439;
 }
 
 .errorInput:focus {
 }
 
 .error {
+    font-size: 10px;
+    font-weight: 400;
+    color: #CC1439;
 }
