@@ -1,6 +1,5 @@
 .App {
     --header_height: 60px;
-    padding-top: var(--header_height);
     font-family: "Montserrat", serif;
     font-weight: 600;
     font-size: 16px;
