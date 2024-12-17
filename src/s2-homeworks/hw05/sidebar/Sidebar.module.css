@@ -55,6 +55,7 @@
     float: right;
     border: none;
     background-color: transparent;
+    cursor: pointer;
 }
 
 .close img {
