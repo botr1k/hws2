@@ -12,13 +12,13 @@
     "@testing-library/user-event": "13.5.0",
     "@types/jest": "27.5.2",
     "@types/node": "16.11.56",
-    "@types/react": "18.0.17",
-    "@types/react-dom": "18.0.6",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
     "@types/uuid": "8.3.4",
-    "axios": "0.27.2",
-    "gh-pages": "4.0.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "axios": "1.7.4",
+    "gh-pages": "5.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-redux": "8.0.4",
     "react-router-dom": "6.4.3",
     "react-scripts": "5.0.1",
@@ -52,5 +52,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "packageManager": "yarn@1.22.20+sha512.ac041328e067252937321389e77e8e211f51fed696094fdef826ae9f7049b81a0fe646540d9a2a36ab7c3c03df04b8a16554285ffb1468d42a01d2a363d6a073"
 }
