@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from 'react'
+
+import React, { useEffect, useState } from 'react'
 import s2 from '../../s1-main/App.module.css'
 import s from './HW15.module.css'
 import axios from 'axios'
 import SuperPagination from './common/c9-SuperPagination/SuperPagination'
-import {useSearchParams} from 'react-router-dom'
+import { useSearchParams } from 'react-router-dom'
 import SuperSort from './common/c10-SuperSort/SuperSort'
 
 /*
@@ -31,7 +32,7 @@ const getTechs = (params: ParamsType) => {
     return axios
         .get<{ techs: TechType[], totalCount: number }>(
             'https://samurai.it-incubator.io/api/3.0/homework/test3',
-            {params}
+            { params }
         )
         .catch((e) => {
             alert(e.response?.data?.errorText || e.message)
@@ -43,7 +44,7 @@ const HW15 = () => {
     const [page, setPage] = useState(1)
     const [count, setCount] = useState(4)
     const [idLoading, setLoading] = useState(false)
-    const [totalCount, setTotalCount] = useState(100)
+    const [totalCount, setTotalCount] = useState(0)
     const [searchParams, setSearchParams] = useSearchParams()
     const [techs, setTechs] = useState<TechType[]>([])
 
@@ -52,22 +53,26 @@ const HW15 = () => {
         getTechs(params)
             .then((res) => {
                 // делает студент
-
+                if (res) {
+                    setTechs(res.data.techs)
+                    setTotalCount(res.data.totalCount)
+                }
                 // сохранить пришедшие данные
-
                 //
-            })
+            }).finally(() => {
+            setLoading(false)
+        })
     }
-
     const onChangePagination = (newPage: number, newCount: number) => {
         // делает студент
-
         // setPage(
+        setPage(newPage)
         // setCount(
-
+        setCount(newCount)
         // sendQuery(
+        sendQuery({ sort, page: newPage, count: newCount })
         // setSearchParams(
-
+        setSearchParams(sort)
         //
     }
 
@@ -75,17 +80,19 @@ const HW15 = () => {
         // делает студент
 
         // setSort(
+        setSort(newSort)
         // setPage(1) // при сортировке сбрасывать на 1 страницу
-
+        setPage(1)
         // sendQuery(
+        sendQuery({ sort: newSort, page: 1, count: count })
         // setSearchParams(
-
+        setSearchParams(sort)
         //
     }
 
     useEffect(() => {
         const params = Object.fromEntries(searchParams)
-        sendQuery({page: params.page, count: params.count})
+        sendQuery({ page: params.page, count: params.count })
         setPage(+params.page || 1)
         setCount(+params.count || 4)
     }, [])
@@ -119,12 +126,12 @@ const HW15 = () => {
                 <div className={s.rowHeader}>
                     <div className={s.techHeader}>
                         tech
-                        <SuperSort sort={sort} value={'tech'} onChange={onChangeSort}/>
+                        <SuperSort sort={sort} value={'tech'} onChange={onChangeSort} />
                     </div>
 
                     <div className={s.developerHeader}>
                         developer
-                        <SuperSort sort={sort} value={'developer'} onChange={onChangeSort}/>
+                        <SuperSort sort={sort} value={'developer'} onChange={onChangeSort} />
                     </div>
                 </div>
 

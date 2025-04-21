@@ -1,17 +1,39 @@
 .tech {
-    width: 50vw;
+    width: 30vw;
+    padding: 12px 0 12px 17px;
 }
 
 .developer {
-
+    padding: 12px 0 12px 17px;
+    width: 30vw;
 }
 
 .techHeader {
-    width: 50vw;
+    width: 30vw;
+    display: flex;
+    gap: 10px;
+    background: rgb(229, 229, 229);
+    color: rgb(0, 0, 0);
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16px;
+    text-align: left;
+    padding: 11px 0 9px 17px;
 }
 
 .developerHeader {
-
+    display: flex;
+    width: 30vw;
+    gap: 10px;
+    background: rgb(229, 229, 229);
+    color: rgb(0, 0, 0);
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16px;
+    text-align: left;
+    padding: 11px 0 9px 17px;
 }
 
 .row {
@@ -20,8 +42,38 @@
 
 .rowHeader {
     display: flex;
+    margin-top: 30px;
+
 }
 
 .loading {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-self: center;
+}
 
+.loading:before,
+.loading:after {
+    content: '';
+    border-radius: 50%;
+    position: absolute;
+    inset: 0;
+    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.3) inset;
+}
+
+.loading:after {
+    box-shadow: 0 3px 0 #0029dd inset;
+    animation: rotate 4s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0)
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
 }
